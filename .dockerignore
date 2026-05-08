@@ -1,0 +1,10 @@
+.git
+.gitignore
+.env
+.tmp
+AGENTS.md
+README.md
+directives/
+execution/
+Dockerfile
+.dockerignore

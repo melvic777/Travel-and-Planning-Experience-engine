@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plan your perfect trip with AI-powered itineraries, real-time weather, budget tracking, and stunning destination guides.">
+  <title>TravelEngine — Your Journey, Intelligently Crafted</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+</head>
+<body>
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-icon">✈️</span>
+      <span>TravelEngine</span>
+    </a>
+    <div class="nav__links-container">
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link active">Home</a></li>
+        <li><a href="planner.html" class="nav__link">Plan Trip</a></li>
+        <li><a href="explore.html" class="nav__link">Explore</a></li>
+        <li><a href="itinerary.html" class="nav__link">Itineraries</a></li>
+        <li><a href="budget.html" class="nav__link">Budget</a></li>
+        <li><a href="packing.html" class="nav__link">Packing</a></li>
+        <li><a href="journal.html" class="nav__link">Journal</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <a href="planner.html" class="btn btn--primary btn--sm nav__cta">Start Planning</a>
+      </div>
+    </div>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile-menu" id="mobile-menu">
+    <a href="index.html">🏠 Home</a>
+    <a href="planner.html">🗺️ Plan Trip</a>
+    <a href="explore.html">🌎 Explore</a>
+    <a href="itinerary.html">📋 Itineraries</a>
+    <a href="budget.html">💰 Budget</a>
+    <a href="packing.html">🎒 Packing</a>
+    <a href="journal.html">📔 Journal</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__particles" id="hero-particles"></div>
+    </div>
+    <div class="hero__content">
+      <div class="hero__label">✨ AI-Powered Travel Planning</div>
+      <h1 class="hero__title">
+        Your Journey,<br>
+        <span class="hero__title-gradient">Intelligently Crafted</span>
+      </h1>
+      <p class="hero__subtitle">
+        Plan unforgettable trips with smart itineraries, real-time weather insights, 
+        budget tracking, and curated destination guides — all in one beautiful platform.
+      </p>
+      <div class="hero__actions">
+        <a href="planner.html" class="btn btn--primary btn--lg hero__cta btn--glow" id="hero-cta">
+          Plan Your Trip →
+        </a>
+        <a href="explore.html" class="btn btn--ghost btn--lg">
+          Explore Destinations
+        </a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span>Scroll to explore</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features section" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-header__label">✦ Features</div>
+        <h2 class="section-header__title">Everything You Need</h2>
+        <p class="section-header__desc">From inspiration to packing list — we've got every step of your journey covered.</p>
+      </div>
+      <div class="features__grid">
+        <div class="card feature-card reveal delay-1">
+          <div class="feature-card__icon">🗺️</div>
+          <h3 class="feature-card__title">Smart Itineraries</h3>
+          <p class="feature-card__desc">AI-generated day-by-day plans tailored to your interests, pace, and budget.</p>
+        </div>
+        <div class="card feature-card reveal delay-2">
+          <div class="feature-card__icon">🌤️</div>
+          <h3 class="feature-card__title">Live Weather</h3>
+          <p class="feature-card__desc">Real-time forecasts integrated into your plans — never get caught in the rain.</p>
+        </div>
+        <div class="card feature-card reveal delay-3">
+          <div class="feature-card__icon">💰</div>
+          <h3 class="feature-card__title">Budget Tracker</h3>
+          <p class="feature-card__desc">Track expenses in any currency with visual breakdowns and smart alerts.</p>
+        </div>
+        <div class="card feature-card reveal delay-4">
+          <div class="feature-card__icon">🎒</div>
+          <h3 class="feature-card__title">Smart Packing</h3>
+          <p class="feature-card__desc">Weather-aware packing lists generated based on your destination and activities.</p>
+        </div>
+        <div class="card feature-card reveal delay-5">
+          <div class="feature-card__icon">📔</div>
+          <h3 class="feature-card__title">Travel Journal</h3>
+          <p class="feature-card__desc">Capture memories with photos, mood tracking, and beautiful timeline views.</p>
+        </div>
+        <div class="card feature-card reveal delay-6">
+          <div class="feature-card__icon">🌍</div>
+          <h3 class="feature-card__title">Destination Explorer</h3>
+          <p class="feature-card__desc">Discover and compare 18+ curated destinations with insider tips and cost breakdowns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Destinations -->
+  <section class="section" id="trending">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-header__label">🔥 Trending</div>
+        <h2 class="section-header__title">Popular Destinations</h2>
+        <p class="section-header__desc">Explore the world's most loved travel destinations.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="destinations__scroll" id="destinations-scroll"></div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats section--sm" id="stats">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stat reveal">
+          <div class="stat__number" data-target="50000" id="stat-trips">0</div>
+          <div class="stat__label">Trips Planned</div>
+        </div>
+        <div class="stat reveal delay-1">
+          <div class="stat__number" data-target="190" id="stat-countries">0</div>
+          <div class="stat__label">Countries Covered</div>
+        </div>
+        <div class="stat reveal delay-2">
+          <div class="stat__number" data-target="12000" id="stat-users">0</div>
+          <div class="stat__label">Happy Travelers</div>
+        </div>
+        <div class="stat reveal delay-3">
+          <div class="stat__number" data-target="49" id="stat-rating">0</div>
+          <div class="stat__label">User Rating (4.9★)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner section reveal" id="cta-section">
+    <div class="container">
+      <h2 class="cta-banner__title">Ready for Your Next Adventure?</h2>
+      <p class="cta-banner__desc">Start planning your dream trip in minutes — completely free.</p>
+      <a href="planner.html" class="btn btn--primary btn--lg btn--glow">Start Planning Now ✈️</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="index.html" class="nav__logo">
+            <span class="nav__logo-icon">✈️</span>
+            <span>TravelEngine</span>
+          </a>
+          <p class="footer__brand-desc">Your AI-powered travel companion. Plan smarter, travel better, remember forever.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Plan</h4>
+          <ul class="footer__links">
+            <li><a href="planner.html">Trip Planner</a></li>
+            <li><a href="itinerary.html">My Itineraries</a></li>
+            <li><a href="budget.html">Budget Tracker</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Discover</h4>
+          <ul class="footer__links">
+            <li><a href="explore.html">Destinations</a></li>
+            <li><a href="packing.html">Packing Lists</a></li>
+            <li><a href="journal.html">Travel Journal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading">Connect</h4>
+          <ul class="footer__links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 TravelEngine. Crafted with ❤️ for travelers.</span>
+        <div class="footer__socials">
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="GitHub">💻</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/destinations.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Landing page initialization
+    document.addEventListener('DOMContentLoaded', () => {
+      initParticles();
+      initDestinationCards();
+      initStatCounters();
+    });
+
+    // Particle background
+    function initParticles() {
+      const container = document.getElementById('hero-particles');
+      if (!container) return;
+      for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.top = Math.random() * 100 + '%';
+        p.style.animationDuration = (8 + Math.random() * 15) + 's';
+        p.style.animationDelay = Math.random() * 10 + 's';
+        p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
+        container.appendChild(p);
+      }
+    }
+
+    // Destination carousel
+    function initDestinationCards() {
+      const scroll = document.getElementById('destinations-scroll');
+      if (!scroll) return;
+      const featured = DESTINATIONS.slice(0, 10);
+      featured.forEach(dest => {
+        const card = document.createElement('div');
+        card.className = 'dest-card';
+        card.onclick = () => window.location.href = `explore.html?dest=${dest.id}`;
+        card.innerHTML = `
+          <img src="${dest.image}" alt="${dest.name}" class="dest-card__image" loading="lazy">
+          <div class="dest-card__overlay">
+            <div class="dest-card__country">${dest.country}</div>
+            <div class="dest-card__name">${dest.name}</div>
+            <div class="dest-card__tagline">${dest.tagline}</div>
+            <div class="dest-card__meta">
+              <span>💰 ~$${dest.avgCost}/day</span>
+              <span>⭐ ${dest.safety}/5</span>
+            </div>
+          </div>
+        `;
+        scroll.appendChild(card);
+      });
+    }
+
+    // Animated counters on scroll
+    function initStatCounters() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.dataset.target);
+            Utils.animateCounter(el, target, 2000);
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.stat__number').forEach(el => observer.observe(el));
+    }
+  </script>
+</body>
+</html>

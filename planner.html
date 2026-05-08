@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plan your perfect trip with our intelligent 5-step wizard. Set destinations, dates, preferences and get an AI-generated itinerary.">
+  <title>Plan Your Trip — TravelEngine</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/planner.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+</head>
+<body>
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled" id="main-nav">
+    <a href="index.html" class="nav__logo"><span class="nav__logo-icon">✈️</span><span>TravelEngine</span></a>
+    <ul class="nav__links">
+      <li><a href="index.html" class="nav__link">Home</a></li>
+      <li><a href="planner.html" class="nav__link active">Plan Trip</a></li>
+      <li><a href="explore.html" class="nav__link">Explore</a></li>
+      <li><a href="itinerary.html" class="nav__link">Itineraries</a></li>
+      <li><a href="budget.html" class="nav__link">Budget</a></li>
+      <li><a href="packing.html" class="nav__link">Packing</a></li>
+      <li><a href="journal.html" class="nav__link">Journal</a></li>
+    </ul>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav__mobile-menu" id="mobile-menu">
+    <a href="index.html">🏠 Home</a><a href="planner.html">🗺️ Plan Trip</a><a href="explore.html">🌎 Explore</a>
+    <a href="itinerary.html">📋 Itineraries</a><a href="budget.html">💰 Budget</a><a href="packing.html">🎒 Packing</a><a href="journal.html">📔 Journal</a>
+  </div>
+
+  <main class="planner-page">
+    <!-- Progress -->
+    <div class="wizard-progress" id="wizard-progress">
+      <div class="wizard-step active" data-step="1"><div class="wizard-step__circle">1</div><span class="wizard-step__label">Where</span></div>
+      <div class="wizard-step__line"></div>
+      <div class="wizard-step" data-step="2"><div class="wizard-step__circle">2</div><span class="wizard-step__label">When</span></div>
+      <div class="wizard-step__line"></div>
+      <div class="wizard-step" data-step="3"><div class="wizard-step__circle">3</div><span class="wizard-step__label">Who</span></div>
+      <div class="wizard-step__line"></div>
+      <div class="wizard-step" data-step="4"><div class="wizard-step__circle">4</div><span class="wizard-step__label">Preferences</span></div>
+      <div class="wizard-step__line"></div>
+      <div class="wizard-step" data-step="5"><div class="wizard-step__circle">5</div><span class="wizard-step__label">Review</span></div>
+    </div>
+
+    <div class="wizard-panel">
+      <!-- Step 1: Where -->
+      <div class="wizard-slide active" id="step-1">
+        <h2 class="wizard-slide__title">Where do you want to go? 🌍</h2>
+        <p class="wizard-slide__subtitle">Search for destinations or let us surprise you</p>
+        <div class="selected-destinations" id="selected-destinations"></div>
+        <div class="search-wrapper">
+          <span class="search-wrapper__icon">🔍</span>
+          <input type="text" class="input" id="dest-search" placeholder="Search cities, countries..." autocomplete="off">
+          <div class="search-results" id="search-results"></div>
+        </div>
+        <h4 style="color:var(--text-secondary);margin-bottom:var(--space-3);font-family:var(--font-body);font-size:var(--text-sm)">Or pick a popular destination</h4>
+        <div class="interest-tags" id="quick-destinations"></div>
+        <button class="btn btn--accent surprise-btn" id="surprise-btn" onclick="Planner.surpriseMe()">🎲 Surprise Me!</button>
+        <div class="wizard-nav"><div></div><button class="btn btn--primary" onclick="Planner.nextStep()">Continue →</button></div>
+      </div>
+
+      <!-- Step 2: When -->
+      <div class="wizard-slide" id="step-2">
+        <h2 class="wizard-slide__title">When are you traveling? 📅</h2>
+        <p class="wizard-slide__subtitle">Pick your travel dates</p>
+        <div class="date-picker">
+          <div class="input-group"><label for="date-start">Start Date</label><input type="date" class="input" id="date-start"></div>
+          <div class="input-group"><label for="date-end">End Date</label><input type="date" class="input" id="date-end"></div>
+        </div>
+        <div class="trip-duration" id="trip-duration" style="display:none">
+          <div class="trip-duration__number" id="trip-days">0</div>
+          <div class="trip-duration__label">days of adventure</div>
+        </div>
+        <div class="wizard-nav">
+          <button class="btn btn--ghost" onclick="Planner.prevStep()">← Back</button>
+          <button class="btn btn--primary" onclick="Planner.nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Who -->
+      <div class="wizard-slide" id="step-3">
+        <h2 class="wizard-slide__title">Who's traveling? 👥</h2>
+        <p class="wizard-slide__subtitle">Tell us about your travel group</p>
+        <div class="traveler-counters">
+          <div class="traveler-counter">
+            <div class="traveler-counter__info"><h4>Adults</h4><span>Age 13+</span></div>
+            <div class="counter-controls">
+              <button class="counter-controls__btn" onclick="Planner.updateCount('adults',-1)">−</button>
+              <span class="counter-controls__value" id="count-adults">1</span>
+              <button class="counter-controls__btn" onclick="Planner.updateCount('adults',1)">+</button>
+            </div>
+          </div>
+          <div class="traveler-counter">
+            <div class="traveler-counter__info"><h4>Children</h4><span>Age 2-12</span></div>
+            <div class="counter-controls">
+              <button class="counter-controls__btn" onclick="Planner.updateCount('children',-1)">−</button>
+              <span class="counter-controls__value" id="count-children">0</span>
+              <button class="counter-controls__btn" onclick="Planner.updateCount('children',1)">+</button>
+            </div>
+          </div>
+        </div>
+        <h4 style="color:var(--text-primary);margin-bottom:var(--space-4);font-family:var(--font-body);font-size:var(--text-base)">Travel Style</h4>
+        <div class="travel-styles" id="travel-styles">
+          <div class="travel-style" data-style="solo" onclick="Planner.selectStyle(this)"><div class="travel-style__icon">🎒</div><div class="travel-style__label">Solo</div></div>
+          <div class="travel-style" data-style="couple" onclick="Planner.selectStyle(this)"><div class="travel-style__icon">💑</div><div class="travel-style__label">Couple</div></div>
+          <div class="travel-style selected" data-style="family" onclick="Planner.selectStyle(this)"><div class="travel-style__icon">👨‍👩‍👧‍👦</div><div class="travel-style__label">Family</div></div>
+          <div class="travel-style" data-style="group" onclick="Planner.selectStyle(this)"><div class="travel-style__icon">👥</div><div class="travel-style__label">Group</div></div>
+          <div class="travel-style" data-style="business" onclick="Planner.selectStyle(this)"><div class="travel-style__icon">💼</div><div class="travel-style__label">Business</div></div>
+        </div>
+        <div class="wizard-nav">
+          <button class="btn btn--ghost" onclick="Planner.prevStep()">← Back</button>
+          <button class="btn btn--primary" onclick="Planner.nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Preferences -->
+      <div class="wizard-slide" id="step-4">
+        <h2 class="wizard-slide__title">Your Preferences ✨</h2>
+        <p class="wizard-slide__subtitle">Help us tailor the perfect itinerary</p>
+        <div class="input-group" style="margin-bottom:var(--space-6)">
+          <label>Daily Budget (per person)</label>
+          <div class="budget-display"><div class="budget-display__value" id="budget-value">$100</div><div class="budget-display__label">per day</div></div>
+          <input type="range" class="range-slider" id="budget-slider" min="20" max="500" value="100" step="10">
+        </div>
+        <label style="font-size:var(--text-sm);font-weight:500;color:var(--text-secondary);display:block;margin-bottom:var(--space-3)">Interests</label>
+        <div class="interest-tags" id="interest-tags"></div>
+        <label style="font-size:var(--text-sm);font-weight:500;color:var(--text-secondary);display:block;margin-bottom:var(--space-3);margin-top:var(--space-6)">Travel Pace</label>
+        <div class="pace-options" id="pace-options">
+          <div class="pace-option" data-pace="relaxed" onclick="Planner.selectPace(this)"><div class="pace-option__icon">🧘</div><div class="pace-option__label">Relaxed</div><div class="pace-option__desc">2-3 activities/day</div></div>
+          <div class="pace-option selected" data-pace="moderate" onclick="Planner.selectPace(this)"><div class="pace-option__icon">🚶</div><div class="pace-option__label">Moderate</div><div class="pace-option__desc">4-5 activities/day</div></div>
+          <div class="pace-option" data-pace="packed" onclick="Planner.selectPace(this)"><div class="pace-option__icon">🏃</div><div class="pace-option__label">Packed</div><div class="pace-option__desc">6+ activities/day</div></div>
+        </div>
+        <div class="wizard-nav">
+          <button class="btn btn--ghost" onclick="Planner.prevStep()">← Back</button>
+          <button class="btn btn--primary" onclick="Planner.nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 5: Review -->
+      <div class="wizard-slide" id="step-5">
+        <h2 class="wizard-slide__title">Review Your Trip 🎯</h2>
+        <p class="wizard-slide__subtitle">Make sure everything looks perfect</p>
+        <div class="review-summary" id="review-summary"></div>
+        <button class="btn btn--primary btn--glow generate-btn" onclick="Planner.generateTrip()">✨ Generate My Itinerary</button>
+        <div class="wizard-nav" style="margin-top:var(--space-4)">
+          <button class="btn btn--ghost" onclick="Planner.prevStep()">← Back</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/destinations.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/planner.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore and compare 18+ curated travel destinations with insider tips, costs, and safety ratings.">
+  <title>Explore Destinations — TravelEngine</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/explore.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+</head>
+<body>
+  <div id="toast-container" class="toast-container"></div>
+  <nav class="nav scrolled" id="main-nav">
+    <a href="index.html" class="nav__logo"><span class="nav__logo-icon">✈️</span><span>TravelEngine</span></a>
+    <ul class="nav__links">
+      <li><a href="index.html" class="nav__link">Home</a></li>
+      <li><a href="planner.html" class="nav__link">Plan Trip</a></li>
+      <li><a href="explore.html" class="nav__link active">Explore</a></li>
+      <li><a href="itinerary.html" class="nav__link">Itineraries</a></li>
+      <li><a href="budget.html" class="nav__link">Budget</a></li>
+      <li><a href="packing.html" class="nav__link">Packing</a></li>
+      <li><a href="journal.html" class="nav__link">Journal</a></li>
+    </ul>
+    <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav__mobile-menu" id="mobile-menu">
+    <a href="index.html">🏠 Home</a><a href="planner.html">🗺️ Plan</a><a href="explore.html">🌎 Explore</a>
+    <a href="itinerary.html">📋 Itineraries</a><a href="budget.html">💰 Budget</a><a href="packing.html">🎒 Packing</a><a href="journal.html">📔 Journal</a>
+  </div>
+
+  <main class="explore-page">
+    <div class="explore-header">
+      <h1 class="explore-header__title">Explore Destinations 🌍</h1>
+      <p class="explore-header__desc">Discover your next adventure from 18+ curated destinations</p>
+    </div>
+    <div class="explore-filters container" id="explore-filters">
+      <input type="text" class="input" id="explore-search" placeholder="🔍 Search destinations...">
+      <select class="input" id="filter-continent"><option value="">All Continents</option><option>Europe</option><option>Asia</option><option>North America</option><option>South America</option><option>Africa</option><option>Oceania</option></select>
+      <select class="input" id="filter-budget"><option value="">All Budgets</option><option value="low">Budget ($0-60)</option><option value="mid">Mid ($60-150)</option><option value="high">Premium ($150+)</option></select>
+      <button class="btn btn--ghost btn--sm" id="compare-btn" style="display:none" onclick="Explorer.showCompare()">⚖️ Compare (<span id="compare-count">0</span>)</button>
+    </div>
+    <div class="explore-grid" id="explore-grid"></div>
+
+    <div class="compare-bar" id="compare-bar">
+      <div class="compare-bar__selected" id="compare-selected"></div>
+      <div style="display:flex;gap:var(--space-3)">
+        <button class="btn btn--primary btn--sm" onclick="Explorer.showCompare()">Compare Now</button>
+        <button class="btn btn--ghost btn--sm" onclick="Explorer.clearCompare()">Clear</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="modal-backdrop" id="dest-modal">
+    <div class="modal dest-detail" id="dest-detail-content"></div>
+  </div>
+
+  <!-- Compare Modal -->
+  <div class="modal-backdrop" id="compare-modal">
+    <div class="modal" style="max-width:800px;width:95%">
+      <div class="modal__header"><h3 class="modal__title">Compare Destinations</h3><button class="btn btn--icon btn--ghost" onclick="App.closeModal('compare-modal')">✕</button></div>
+      <div class="modal__body" id="compare-body" style="overflow-x:auto"></div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/destinations.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/explore.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "travel-engine-495708",
+  "private_key_id": "64a9a802626dcc63ce62aacaf63fc3f4127f7d82",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDQYZ3jX6KxLDjq\n4Z0/dTRk9ouHEPnv835IHqNjFaJcpl/CYu2Dof3qidDL5Yw3BCDhPD8W/Qu8tNM2\nKVM6mEG8VxGqXHPuMbKLxgipbS+QWmdI/aiiZtdygQ5lZw24uk0fFIMwPuAX/HTR\n8bmoj3OGKB8Oh3KWd+Oz6BDGLPXg8L/i2NY4bQy0mpvvhZw7w4Nz2DTnPiQSGuXL\nFmi7Oshvg6drCevEd+rOEPXZ0o7gZbErbpke4uISHYBqh+3cN7N7tvaqaY9AjI52\n6qE3tggle8YQ1UgadlS1AEKozVZ9tMmAzoFxPo+vm/1SQfp18qFXAVpG3sSrztTp\nHpNp9Q57AgMBAAECggEAU5fdYVHDr8R4Ps1sKgFIF/qJhZDrWvV4otDbpYuPuxAp\nGQ9bjbNF67kGkE0RHx7iW8ix3HR9qWF222LflwFuWXIqTYfSH+tC32x9nA4Hhyal\nCXRsml2cLzyTfF1HdWQTPRUa/ZcziZvGd1Q7sOF/LAHbV5ZBgxgsOccuN3ng1y+z\nR0aVCWW8H3ymD68t5PtnH3ebks4eTOGRxGFUYvx30D8lDGpD0li8zKdOzxfiz7FV\nQtHiom45aR4jKh239JrNosXuNN4oFOPQ40Nxk6qEh4W6NDgWGPVy4GRJ4eg7jqmD\n4VOvQvXI/mmXik68q52IuyoH4Z44BInagQlrNopKuQKBgQD5ZjsvQnexagAppzn1\n4WwGVyUrzCDMspCZs8sqaeY0nykSPvkCgJIbRntAUUn9OD5lgob+IsCmW1pYu1Q6\nmiSM+5mz/K18OSUaj5Kr7RODh3sIorcseUtQ640HV1YkEOgv7oYqdKYFJDzCD0vU\ng4ASJb+869ow22sS+7M1utMxswKBgQDV5XlS7XW+U/LSe/gldnmWgiaQZcnd5RHj\ndC64WRoqOYmEzZTYX+vWL6kIhBxeTl5o0RqdcMToN7V06K2HSnEJIICmXed+Y0Cz\nQk/GhZ4yltznfv1X7/yS9jJQoGQBRtZhcmMhmufGRrzGHMYVuKAFCq3hCJmTvkyG\nFmoXwXP8GQKBgBMgVfWf4VIH0Q9gtb83lHNAB6e+Nd286/39nd0Y1gC/HAU8MxiQ\nB6Rz2UvrcAMtZwud4QBoZeHcK6eWZjVAUQFG4li9Tgiy0TeiPxtUSSTTJQpagDW2\n76G7Dsu7VO3bJhNW9Y8X9wt55fbz+VrI4u+BWZ0BcXBBw4pnJy09sKilAoGAXTTH\nr3lGS4+tSkc3FKwRw6InR9jzJDxDlUf1a+N34Vp9MF+dMsRpskXGdK2M5xNjVG16\nGY0gYMiVy8Hwi/nGU+HT7asRyyNY+EQ3GxzymLzguge+QemTuD6MIlIiAeRqWsBL\nrkMgKGh+rh2vu5teL5Q9vMfQlG7iTbPKu1tTPVECgYEAkmassSmGxsWTZ5XlSczK\nnP1Kdpmr1uMpZLtqKbea47Pzmqqr7m9TmysN2mW5yPYvpKO2FJgK5wKXRX6KtnI1\nCueHLqFdR0rgoHP2cgsE+JCh0bGZ7gdEQ/vdLLe4gVOxYCf/dWaYXU1z65dCRWOx\nR8b/MHzRLLyFvJVVB30EYxE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "antigravity-sa@travel-engine-495708.iam.gserviceaccount.com",
+  "client_id": "103789076519602171978",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/antigravity-sa%40travel-engine-495708.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
